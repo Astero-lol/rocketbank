@@ -1,0 +1,26 @@
+@import '../../common/vars.css';
+@import '../../common/reset.css';
+@import '../../common/media.css';
+
+/*** --- Document --- ***/
+html,
+body {
+    height: 100%;
+
+    font-weight: normal;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    color: var(--text-color);
+
+    background: var(--bg-color);
+
+    -webkit-text-size-adjust: 100%;
+}
+
+
+/*** --- Links --- ***/
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}

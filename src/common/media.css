@@ -1,0 +1,8 @@
+@custom-media --small screen;
+@custom-media --small-only screen and (max-width: 47.9375em);
+@custom-media --medium screen and (min-width: 48em);
+@custom-media --medium-only screen and (min-width: 48em) and (max-width: 64em);
+@custom-media --large screen and (min-width: 64.0625em);
+@custom-media --large-only screen and (min-width: 64.0625em) and (max-width: 90em);
+@custom-media --xlarge screen and (min-width: 90.0625em);
+@custom-media --xlarge-only screen and (min-width: 90.0625em) and (max-width: 120em);
