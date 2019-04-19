@@ -2,9 +2,11 @@ import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 import { connect } from 'react-redux';
 
+import { TApplicationState } from '../../reducers';
+
 import './app.css';
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: TApplicationState) {
     return {
         app: state.app
     };
@@ -14,9 +16,7 @@ function mapStateToProps(state: any) {
 class App extends React.Component<{}, {}> {
     render(cn?: CnFn) {
         return (
-            <div className={ cn() }>
-
-            </div>
+            <div className={ cn() } />
         );
     }
 }
