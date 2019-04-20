@@ -35,7 +35,6 @@ export type TChatState = {
     list: TMessage[];
 };
 
-
 const initialState: TChatState = {
     list: [
         {

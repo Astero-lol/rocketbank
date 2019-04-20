@@ -1,0 +1,15 @@
+@import '../../../common/vars.css';
+
+.paragraph {
+    &_size {
+        &_xs {
+            font-size: var(--font-size-xs);
+        }
+        &_s {
+            font-size: var(--font-size-s);
+        }
+        &_m {
+            font-size: var(--font-size-m);
+        }
+    }
+}

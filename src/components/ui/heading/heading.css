@@ -1,0 +1,14 @@
+@import '../../../common/vars.css';
+
+.heading {
+    font-family: var(--font-bold);
+
+    &_size {
+        &_s {
+            font-size: var(--font-size-s);
+        }
+        &_l {
+            font-size: var(--font-size-l);
+        }
+    }
+}

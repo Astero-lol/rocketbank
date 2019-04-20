@@ -1,5 +1,5 @@
 type TTransaction = {
-    id: string,
+    id: string;
     icon: string;
     title: string;
     amount: string;

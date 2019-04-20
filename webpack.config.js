@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const urlLoader = require.resolve('url-loader');
+
 module.exports = {
     devtool: 'eval',
     entry: [
@@ -56,6 +58,14 @@ module.exports = {
                     { loader: 'css-loader', options: { importLoaders: 1 } },
                     'postcss-loader'
                 ]
+            },
+            {
+                test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/],
+                loader: urlLoader,
+                options: {
+                    limit: 10000,
+                    name: '[name].[hash:8].[ext]'
+                }
             }
         ]
     }
