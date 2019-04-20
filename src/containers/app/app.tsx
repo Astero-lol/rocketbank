@@ -16,7 +16,7 @@ function mapStateToProps(state: TApplicationState) {
     };
 }
 
-type TAppProps = ReturnType<typeof mapStateToProps>
+type TAppProps = ReturnType<typeof mapStateToProps>;
 
 @cn('app')
 class App extends React.Component<TAppProps> {

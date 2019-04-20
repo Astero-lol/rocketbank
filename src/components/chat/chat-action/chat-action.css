@@ -1,6 +1,42 @@
 @import '../../../common/vars.css';
 
 .chat-action {
-    min-height: 100px;
+    padding: 20px 30px;
     background-color: var(--dark-gray-color);
+
+    &__actions {
+        display: flex;
+        margin-bottom: 15px;
+    }
+
+    &__action-icon {
+        margin-right: 20px;
+    }
+
+    &__form {
+        display: flex;
+        align-items: end;
+    }
+
+    &__textarea,
+    &__send {
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    &__textarea {
+        display: block;
+        width: 100%;
+        height: 30px;
+        padding-right: 10px;
+        resize: none;
+
+        color: var(--white-color);
+    }
+
+    &__send {
+        cursor: pointer;
+    }
 }

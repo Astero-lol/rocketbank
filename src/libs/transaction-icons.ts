@@ -14,7 +14,7 @@ enum ETransactions {
 export type TIconType = {
     type: ETransactionIconsTypes;
     value: string;
-}
+};
 type TTransactionIcons = Record<string, TIconType>;
 
 export const TRANSACTION_ICONS: TTransactionIcons = {
