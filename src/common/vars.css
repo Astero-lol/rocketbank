@@ -27,8 +27,14 @@
     --font-normal: 'SF Text', Arial, Helvetica, sans-serif;
     --font-bold: 'SF Text Bold', Arial, Helvetica, sans-serif;
 
+    --white-color: #fff;
     --dark-gray-color: #333333;
     --gray-color: #f6f6f6;
     --light-gray-color: #fafafa;
     --note-color: #b2b2b2;
+
+    --opacity-minor: .6;
+
+    --user-message-color: #fcfcfc;
+    --emoji-background: #eeeeee;
 }

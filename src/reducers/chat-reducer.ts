@@ -1,67 +1,69 @@
+import { ETransactionIconsTypes, TIconType, TRANSACTION_ICONS } from '../libs/transaction-icons';
+
 export enum EMessageTypes {
-    TEXT = 'TEXT',
-    TRANSACTION = 'TRANSACTION',
-    STICKER = 'STICKER'
+    text = 'text',
+    transaction = 'transaction',
+    sticker = 'sticker'
 }
 export enum EAuthorTypes {
-    USER = 'USER',
-    SUPPORT = 'SUPPORT'
+    user = 'user',
+    support = 'support'
 }
-
-interface IBaseMessageInterface {
+export interface IBaseMessageInterface {
     id: string;
     author: EAuthorTypes;
-    userName?: string;
-    photo?: string;
 }
-interface ITextMessage extends IBaseMessageInterface {
-    type: EMessageTypes.TEXT;
+export interface ITextMessage extends IBaseMessageInterface {
+    type: EMessageTypes.text;
     text: string;
 }
-interface ITransactionMessage extends IBaseMessageInterface {
-    type: EMessageTypes.TRANSACTION;
-    icon: string;
+export interface ITransactionMessage extends IBaseMessageInterface {
+    type: EMessageTypes.transaction;
+    icon: TIconType;
     title: string;
     amount: string;
     cashback: string;
 }
-interface IStickerMassage extends IBaseMessageInterface {
-    type: EMessageTypes.STICKER;
+export interface IStickerMassage extends IBaseMessageInterface {
+    type: EMessageTypes.sticker;
     value: string;
 }
-type TMessage = ITextMessage | ITransactionMessage | IStickerMassage;
+export type TMessage = ITextMessage | ITransactionMessage | IStickerMassage;
 
 export type TChatState = {
-    list: TMessage[];
+    messages: TMessage[];
 };
 
 const initialState: TChatState = {
-    list: [
+    messages: [
         {
             id: '1',
-            author: EAuthorTypes.SUPPORT,
-            type: EMessageTypes.TEXT,
+            author: EAuthorTypes.support,
+            type: EMessageTypes.text,
             text: 'Привет, братишка. Что у тебя за проблемы опять?'
         },
         {
             id: '2',
-            author: EAuthorTypes.USER,
-            type: EMessageTypes.TEXT,
+            author: EAuthorTypes.user,
+            type: EMessageTypes.text,
             text: 'Да вот снова логотип не отображается'
         },
         {
             id: '3',
-            author: EAuthorTypes.USER,
-            type: EMessageTypes.TRANSACTION,
-            icon: '',
+            author: EAuthorTypes.user,
+            type: EMessageTypes.transaction,
+            icon: {
+                type: ETransactionIconsTypes.image,
+                value: TRANSACTION_ICONS.dicsi.value
+            },
             title: 'Перексресток Экспресс',
             amount: '- 6200 ₽',
             cashback: '+62 рокетрубля'
         },
         {
             id: '4',
-            author: EAuthorTypes.SUPPORT,
-            type: EMessageTypes.TEXT,
+            author: EAuthorTypes.support,
+            type: EMessageTypes.text,
             text: 'Попробуй перезапустить приложение'
         }
     ]

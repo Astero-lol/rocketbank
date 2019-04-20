@@ -1,0 +1,6 @@
+@import '../../../common/vars.css';
+
+.chat-action {
+    min-height: 100px;
+    background-color: var(--dark-gray-color);
+}

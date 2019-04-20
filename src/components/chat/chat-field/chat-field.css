@@ -1,0 +1,46 @@
+@import '../../../common/vars.css';
+
+.chat-field {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+
+    background-color: rgba(101, 101, 101, 0.95);
+
+    &__message {
+        &_author {
+            &_support {
+                align-self: flex-end;
+
+                & + .chat-field__message_author_user {
+                    margin-top: 10px;
+
+                    .base-message__photo,
+                    .base-message__name {
+                        display: block;
+                    }
+                }
+            }
+            &_user {
+                padding-left: 40px;
+
+                & + .chat-field__message_author_support {
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .text-message__message,
+        .transaction-message__message {
+            &_author {
+                &_user {
+                    background-color: var(--user-message-color);
+                    color: var(--dark-gray-color);
+
+                    border-radius: 10px 10px 10px 4px;
+                }
+            }
+        }
+    }
+
+}

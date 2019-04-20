@@ -1,0 +1,23 @@
+@import '../../../../common/vars.css';
+
+.base-message {
+    &__name {
+        display: none;
+        margin-bottom: 5px;
+
+        color: var(--white-color);
+        opacity: var(--opacity-minor);
+    }
+
+    &__photo {
+        display: none;
+        position: absolute;
+        left: 0;
+
+        width: 30px;
+        height: 30px;
+
+        border-radius: 50%;
+        background-size: contain;
+    }
+}

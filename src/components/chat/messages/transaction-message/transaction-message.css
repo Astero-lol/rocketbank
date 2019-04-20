@@ -1,0 +1,44 @@
+@import '../../../../common/vars.css';
+
+@import '../../../../common/vars.css';
+
+.transaction-message {
+    position: relative;
+    margin-bottom: 5px;
+
+    &__message {
+        display: inline-block;
+        width: 250px;
+        padding: 20px 25px;
+
+        background-color: var(--dark-gray-color);
+        color: var(--white-color);
+        text-align: center;
+
+        border-radius: 10px;
+    }
+
+    &__icon {
+        display: block;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 15px;
+
+        background-size: contain;
+
+        &_emoji {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: var(--emoji-background);
+            border-radius: 50%;
+            font-size: var(--font-size-l);
+        }
+    }
+
+    &__note {
+        margin-top: 5px;
+        color: var(--note-color);
+    }
+}

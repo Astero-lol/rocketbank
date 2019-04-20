@@ -12,7 +12,7 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: '[name].[hash].js',
+        filename: '[userName].[hash].js',
         publicPath: '/'
     },
     plugins: [
@@ -64,7 +64,7 @@ module.exports = {
                 loader: urlLoader,
                 options: {
                     limit: 10000,
-                    name: '[name].[hash:8].[ext]'
+                    name: '[userName].[hash:8].[ext]'
                 }
             }
         ]

@@ -1,0 +1,17 @@
+@import '../../../../common/vars.css';
+
+.text-message {
+    position: relative;
+    margin-bottom: 5px;
+
+    &__message {
+        display: inline-block;
+        max-width: 250px;
+        padding: 10px 15px;
+
+        background-color: var(--dark-gray-color);
+        color: var(--white-color);
+
+        border-radius: 10px;
+    }
+}
