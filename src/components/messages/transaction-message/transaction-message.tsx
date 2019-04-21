@@ -1,11 +1,11 @@
 import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 
-import { EAuthorTypes, ITransactionMessage } from '../../../../reducers/chat-reducer';
-import { ETransactionIconsTypes } from '../../../../libs/transaction-icons';
-import { TAccountProfile } from '../../../../reducers/account-reducer';
-import Heading from '../../../ui/heading';
-import Paragraph from '../../../ui/paragraph';
+import { EAuthorTypes, ITransactionMessage } from '../../../reducers/chat-reducer';
+import { ETransactionIconsTypes } from '../../../libs/transaction-icons';
+import { TAccountProfile } from '../../../reducers/account-reducer';
+import Heading from '../../ui/heading';
+import Paragraph from '../../ui/paragraph';
 
 import './transaction-message.css';
 import BaseMessage from '../base-message';

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 
-import { EAuthorTypes, ITextMessage } from '../../../../reducers/chat-reducer';
-import { TAccountProfile } from '../../../../reducers/account-reducer';
+import { EAuthorTypes, ITextMessage } from '../../../reducers/chat-reducer';
+import { TAccountProfile } from '../../../reducers/account-reducer';
 
-import Paragraph from '../../../ui/paragraph';
+import Paragraph from '../../ui/paragraph';
 import BaseMessage from '../base-message';
 
 import './text-message.css';

@@ -1,6 +1,6 @@
-@import '../../../../common/vars.css';
+@import '../../../common/vars.css';
 
-@import '../../../../common/vars.css';
+@import '../../../common/vars.css';
 
 .transaction-message {
     position: relative;

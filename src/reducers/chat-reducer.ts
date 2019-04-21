@@ -1,4 +1,6 @@
 import { ETransactionIconsTypes, TIconType, TRANSACTION_ICONS } from '../libs/transaction-icons';
+import { EChatTypes } from '../actions/chat/chat-types';
+import { TGenericChatActions } from '../actions/chat/chat-actions';
 
 export enum EMessageTypes {
     text = 'text',
@@ -69,6 +71,15 @@ const initialState: TChatState = {
     ]
 };
 
-export function chatReducer(state = initialState) {
+export function chatReducer(state = initialState, action: TGenericChatActions) {
+    switch (action.type) {
+        case EChatTypes.SEND_MESSAGE: {
+            return {
+                ...state,
+                messages: [...state.messages, action.message]
+            };
+        }
+    }
+
     return state;
 }

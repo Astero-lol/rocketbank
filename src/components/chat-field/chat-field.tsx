@@ -2,8 +2,8 @@ import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 import { autobind } from 'core-decorators';
 
-import { TMessage, EMessageTypes } from '../../../reducers/chat-reducer';
-import { TAccountProfile } from '../../../reducers/account-reducer';
+import { TMessage, EMessageTypes } from '../../reducers/chat-reducer';
+import { TAccountProfile } from '../../reducers/account-reducer';
 
 import TextMessage from '../messages/text-message';
 import TransactionMessage from '../messages/transaction-message';

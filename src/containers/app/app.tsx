@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import { TApplicationState } from '../../reducers';
 
-import Chat from '../../components/chat/chat';
+import Chat from '../chat';
 import Accounts from '../accounts';
 import Deposits from '../deposits';
 import Transactions from '../transactions';
@@ -25,19 +25,11 @@ type TAppProps = ReturnType<typeof mapStateToProps>;
 @cn('app')
 class App extends React.Component<TAppProps> {
     render(cn?: CnFn) {
-        const {
-            account,
-            chat
-        } = this.props;
-
         return (
             <div className={ cn() }>
                 <div className={ cn('inner') }>
                     <div className={ cn('content') }>
-                        <Chat
-                            profile={ account.profile }
-                            messages={ chat.messages }
-                        />
+                        <Chat />
                     </div>
                     <aside className={ cn('sidebar') }>
                         <Switch>

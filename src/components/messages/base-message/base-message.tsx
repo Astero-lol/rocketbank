@@ -1,9 +1,9 @@
 import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 
-import Paragraph from '../../../ui/paragraph';
+import Paragraph from '../../ui/paragraph';
 
-import { TAccountProfile } from '../../../../reducers/account-reducer';
+import { TAccountProfile } from '../../../reducers/account-reducer';
 
 import './base-message.css';
 
