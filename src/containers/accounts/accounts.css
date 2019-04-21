@@ -1,0 +1,55 @@
+@import '../../common/vars.css';
+
+.accounts {
+    &__account-item {
+        max-width: 265px;
+        margin-bottom: 30px;
+    }
+
+    &__header {
+        display: flex;
+        margin-bottom: 15px;
+    }
+
+    &__icon {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 50px;
+        min-width: 50px;
+        height: 35px;
+        margin-right: 20px;
+
+        box-shadow: 0 8px 16px 0 rgba(38, 38, 38, .16), 0 1px 3px 0 rgba(0, 0, 0, .04);
+        background-color: var(--white-color);
+    }
+
+    &__info {
+        width: 100%;
+        padding-right: 10px;
+    }
+
+    &__icon-open {
+        position: relative;
+
+        width: 36px;
+        min-width: 36px;
+        height: 36px;
+
+        background-color: var(--emoji-background);
+        border-radius: 50%;
+
+        cursor: pointer;
+    }
+
+    &__details {
+        padding-left: 70px;
+    }
+
+    &__note {
+        opacity: var(--opacity-minor);
+    }
+}

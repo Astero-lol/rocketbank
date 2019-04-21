@@ -6,6 +6,7 @@ type TTransaction = {
     title: string;
     amount: string;
     cashback: string;
+    date: string;
 };
 
 type TAccount = {
@@ -35,7 +36,7 @@ const initialState: TAccountState = {
     list: [
         {
             number: 57890456,
-            icon: '',
+            icon: '⛵️',
             amount: '69 650 ₽',
             percent: 8,
             createDate: '23 января 13:55',
@@ -45,14 +46,41 @@ const initialState: TAccountState = {
                     icon: '',
                     title: 'Пополнение с карты',
                     amount: '+ 3500 ₽',
-                    cashback: null
+                    cashback: null,
+                    date: '5 марта 17:15'
                 },
                 {
                     id: '2',
                     icon: '',
-                    title: 'Пополнение с карты',
+                    title: 'Макдональдс',
                     amount: '- 300 ₽',
-                    cashback: '+3 рокетрубля'
+                    cashback: '+3 рокетрубля',
+                    date: '27 январ 21:13'
+                }
+            ]
+        },
+        {
+            number: 57890398,
+            icon: '🕹',
+            amount: '3502 $',
+            percent: 4.5,
+            createDate: '14 августа 10:12',
+            transactions: [
+                {
+                    id: '1',
+                    icon: '',
+                    title: 'Пополнение с карты',
+                    amount: '+ 3500 ₽',
+                    cashback: null,
+                    date: '5 марта 17:15'
+                },
+                {
+                    id: '2',
+                    icon: '',
+                    title: 'Макдональдс',
+                    amount: '- 96 $',
+                    cashback: '+3 рокетрубля',
+                    date: '27 январ 21:13'
                 }
             ]
         }
