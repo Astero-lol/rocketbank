@@ -46,15 +46,15 @@ export default class ChatAction extends React.Component<TChatAction> {
 
     @autobind
     handleSubmit(event) {
+        event.preventDefault();
+
         const {
             sendMessage
         } = this.props;
 
-        event.preventDefault();
-
         sendMessage({
             id: generateId(),
-            author: EAuthorTypes.user,
+            author: EAuthorTypes.support,
             type: EMessageTypes.text,
             text: this.textarea.current.value
         });

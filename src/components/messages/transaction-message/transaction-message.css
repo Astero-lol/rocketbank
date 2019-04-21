@@ -24,6 +24,9 @@
         height: 60px;
         margin: 0 auto 15px;
 
+        border-radius: 50%;
+        overflow: hidden;
+
         background-size: contain;
 
         &_emoji {
@@ -40,5 +43,9 @@
     &__note {
         margin-top: 5px;
         color: var(--note-color);
+
+        &:empty {
+            display: none;
+        }
     }
 }

@@ -1,19 +1,26 @@
 import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { autobind } from 'core-decorators';
 
 import { Link } from 'react-router-dom';
 import { TApplicationState } from '../../reducers';
 
 import { currentAccountSelector } from '../../selectors/current-account-selector';
 
+import { ETransactionIconsTypes } from '../../libs/transaction-icons';
+
 import Heading from '../../components/ui/heading';
 import Paragraph from '../../components/ui/paragraph';
 import Icon from '../../components/ui/icon';
 import AccountIcon from '../../components/ui/account-icon';
 
+import { sendMessage } from '../../actions/chat/chat-actions';
+
 import './transactions.css';
-import { ETransactionIconsTypes } from '../../libs/transaction-icons';
+import { generateId } from '../../utils/generate-id';
+import { EAuthorTypes, EMessageTypes } from '../../reducers/chat-reducer';
 
 function mapStateToProps(state: TApplicationState, ownProps) {
     return {
@@ -22,7 +29,17 @@ function mapStateToProps(state: TApplicationState, ownProps) {
     };
 }
 
-type TTransactions = ReturnType<typeof mapStateToProps>;
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators({
+            sendMessage
+        }, dispatch)
+    };
+}
+
+type TTransactionsReduxProps = ReturnType<typeof mapStateToProps>;
+type TTransactionsDispatchProps = ReturnType<typeof mapDispatchToProps>;
+type TTransactions = TTransactionsReduxProps & TTransactionsDispatchProps;
 
 @cn('transactions')
 class Transactions extends React.Component<TTransactions> {
@@ -86,7 +103,11 @@ class Transactions extends React.Component<TTransactions> {
                     </div>
                     <Paragraph className={ cn('date') } size='s'>{ transaction.date }</Paragraph>
                 </div>
-                <Icon type='chat' className={ cn('icon-chat') } />
+                <Icon
+                    type='chat'
+                    className={ cn('icon-chat') }
+                    onClick={ () => this.handleSendMessage(transaction) }
+                />
             </div>
         );
     }
@@ -98,6 +119,32 @@ class Transactions extends React.Component<TTransactions> {
     renderImageIcon(cn, icon) {
         return <div className={ cn('icon', { image: true }) } style={ { backgroundImage: `url(${icon})` } } />;
     }
+
+    @autobind
+    handleSendMessage(transaction) {
+        const {
+            actions
+        } = this.props;
+        const {
+            title,
+            cashback,
+            amount,
+            icon
+        } = transaction;
+
+        actions.sendMessage({
+            id: generateId(),
+            author: EAuthorTypes.support,
+            type: EMessageTypes.transaction,
+            icon: {
+                type: icon.type,
+                value: icon.value
+            },
+            title,
+            cashback,
+            amount
+        });
+    }
 }
 
-export default connect(mapStateToProps)(Transactions);
+export default connect(mapStateToProps, mapDispatchToProps)(Transactions);
