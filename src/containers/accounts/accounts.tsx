@@ -2,10 +2,13 @@ import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 import { connect } from 'react-redux';
 
+import { Link } from 'react-router-dom';
 import { TApplicationState } from '../../reducers';
 
 import Heading from '../../components/ui/heading';
 import Paragraph from '../../components/ui/paragraph';
+import AccountIcon from '../../components/ui/account-icon';
+import Tabs from '../../components/tabs';
 
 import './accounts.css';
 
@@ -26,6 +29,7 @@ class Accounts extends React.Component<TAccounts> {
 
         return (
             <div className={ cn() }>
+                <Tabs />
                 { account.list.map(item => this.renderAccount(cn, item)) }
             </div>
         );
@@ -33,13 +37,12 @@ class Accounts extends React.Component<TAccounts> {
 
     renderAccount(cn, item) {
         const lastOperation = item.transactions[item.transactions.length - 1];
+        const link = `/accounts/${item.number}`;
 
         return (
             <div className={ cn('account-item') } key={ item.number }>
                 <header className={ cn('header') }>
-                    <div className={ cn('icon') }>
-                        { item.icon }
-                    </div>
+                    <AccountIcon icon={ item.icon } className={ cn('account-icon') } />
                     <div className={ cn('info') }>
                         <Paragraph size='s' className={ cn('account') }>
                             Счёт №
@@ -47,7 +50,7 @@ class Accounts extends React.Component<TAccounts> {
                         </Paragraph>
                         <Heading size='s'>{ item.amount }</Heading>
                     </div>
-                    <div className={ cn('icon-open') } />
+                    <Link to={ link } className={ cn('icon-open') } />
                 </header>
                 <div className={ cn('details') }>
                     <Paragraph size='s' className={ cn('text') }>

@@ -29,30 +29,8 @@ body {
         width: 390px;
         min-width: 390px;
         max-height: 100vh;
-        padding: 60px;
 
         background-color: var(--gray-color);
         overflow-y: scroll;
-    }
-
-    &__tabs {
-        display: flex;
-        margin-bottom: 30px;
-    }
-
-    &__tab {
-        display: block;
-        margin-right: 30px;
-
-        color: var(--text-color);
-        border: none;
-        text-decoration: none;
-
-        opacity: var(--opacity-minor);
-        transition: opacity var(--duration);
-
-        &_active {
-            opacity: 1;
-        }
     }
 }

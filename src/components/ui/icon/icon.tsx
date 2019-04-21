@@ -5,7 +5,7 @@ import './icon.css';
 
 type TIcon = {
     className?: string;
-    type: 'text' | 'sticker' | 'picture' | 'attach' | 'send';
+    type: 'text' | 'sticker' | 'picture' | 'attach' | 'send' | 'chat';
     isHovered?: boolean;
 };
 
@@ -18,7 +18,7 @@ export default class Icon extends React.Component<TIcon> {
         } = this.props;
 
         return (
-            <i className={ cn({ type, hovered: isHovered }) } />
+            <div className={ cn({ type, hovered: isHovered }) } />
         );
     }
 }

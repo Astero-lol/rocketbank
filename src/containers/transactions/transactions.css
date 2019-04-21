@@ -1,0 +1,145 @@
+@import '../../common/vars.css';
+
+.transactions {
+    &__header {
+        position: relative;
+        padding: 60px 60px 30px;
+        background-color: var(--light-gray-color);
+    }
+
+    &__content {
+        padding: 35px 45px;
+    }
+
+    &__close-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1;
+
+        width: 40px;
+        height: 40px;
+
+        background-color: var(--white-color);
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+        border-radius: 50%;
+
+        transition: box-shadow var(--duration);
+        transform: rotate(45deg);
+
+        &:hover {
+            box-shadow: 0 4px 6px 0 rgba(0,0,0,.1);
+        }
+
+        &:after, &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            width: 16px;
+            height: 2px;
+            margin: -1px 0 0 calc(-16px / 2);
+
+            background-color: var(--dark-gray-color);
+            border-radius: 2px;
+
+            content: '';
+        }
+
+        &:after {
+            width: 2px;
+            height: 16px;
+            margin: calc(-16px / 2) 0 0 -1px;
+        }
+    }
+
+    &__label {
+        margin-bottom: 10px;
+        padding-left: 15px;
+        color: var(--note-color);
+    }
+
+    &__main {
+        display: flex;
+        margin-bottom: 15px;
+    }
+
+    &__other {
+        padding-left: 70px;
+    }
+
+    &__account-icon {
+        margin-right: 20px;
+    }
+
+    &__info {
+        width: 100%;
+    }
+
+    &__main-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+
+    &__amount {
+        white-space: nowrap;
+        text-align: right;
+    }
+
+    &__text {
+        color: var(--note-color)
+    }
+
+    &__transaction-item {
+        display: flex;
+        width: 325px;
+        padding: 15px;
+
+        transition: background-color calc(var(--duration) / 2);
+
+        &:hover {
+            background-color: #e9e9e9;
+            transition: background-color var(--duration);
+
+            & .transactions__icon-chat {
+                opacity: 1;
+                transform: translate(0);
+
+                transition: transform var(--duration), opacity var(--duration);
+            }
+        }
+    }
+
+    &__icon {
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+        margin-right: 10px;
+
+        background-size: contain;
+        border-radius: 50%;
+
+        &_emoji {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            background-color: var(--emoji-background);
+        }
+    }
+
+    &__date {
+        color: var(--note-color);
+    }
+
+    &__icon-chat {
+        opacity: 0;
+        margin: -5px 0 0 10px;
+
+        transform: translateY(3px);
+
+        transition: transform calc(var(--duration) / 2), opacity calc(var(--duration) / 2);
+    }
+}

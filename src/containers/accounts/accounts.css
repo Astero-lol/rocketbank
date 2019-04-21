@@ -1,6 +1,8 @@
 @import '../../common/vars.css';
 
 .accounts {
+    padding: 60px;
+
     &__account-item {
         max-width: 265px;
         margin-bottom: 30px;
@@ -11,20 +13,8 @@
         margin-bottom: 15px;
     }
 
-    &__icon {
-        position: relative;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 50px;
-        min-width: 50px;
-        height: 35px;
+    &__account-icon {
         margin-right: 20px;
-
-        box-shadow: 0 8px 16px 0 rgba(38, 38, 38, .16), 0 1px 3px 0 rgba(0, 0, 0, .04);
-        background-color: var(--white-color);
     }
 
     &__info {
@@ -50,6 +40,6 @@
     }
 
     &__note {
-        opacity: var(--opacity-minor);
+        color: var(--note-color)
     }
 }
