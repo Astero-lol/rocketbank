@@ -11,7 +11,7 @@
 
     &__message {
         position: relative;
-        animation: showMessage var(--duration) cubic-bezier(0.77, 0, 0.175, 1);
+        animation: showMessage 250ms;
 
         &_author {
             &_support {

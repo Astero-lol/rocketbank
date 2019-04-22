@@ -30,9 +30,15 @@
         height: 36px;
 
         background-color: var(--emoji-background);
+        background-image: url('./images/ico-disclosure.svg');
         border-radius: 50%;
 
         cursor: pointer;
+        transition: transform var(--duration);
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 
     &__details {

@@ -34,3 +34,16 @@ body {
         overflow-y: scroll;
     }
 }
+
+.animate-enter {
+     opacity: 0;
+ }
+.animate-enter-active {
+    opacity: 1;
+}
+.animate-exit {
+    opacity: 1;
+}
+.animate-exit-active {
+    opacity: 0;
+}
