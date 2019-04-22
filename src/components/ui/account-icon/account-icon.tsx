@@ -17,7 +17,7 @@ export default class AccountIcon extends React.Component<TAccountIcon> {
 
         return (
             <div className={ cn() }>
-                { icon }
+                <div className={ cn('icon') }>{ icon }</div>
             </div>
         );
     }
