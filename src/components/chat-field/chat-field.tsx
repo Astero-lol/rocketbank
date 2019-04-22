@@ -7,6 +7,7 @@ import { TAccountProfile } from '../../reducers/account-reducer';
 
 import TextMessage from '../messages/text-message';
 import TransactionMessage from '../messages/transaction-message';
+import StickerMessage from '../messages/sticker-message';
 
 import './chat-field.css';
 
@@ -50,6 +51,12 @@ export default class ChatField extends React.Component<TChatField> {
             ),
             [EMessageTypes.transaction]: (
                 <TransactionMessage
+                    { ...messageProps }
+                    className={ cn('message', { author: message.author }) }
+                />
+            ),
+            [EMessageTypes.sticker]: (
+                <StickerMessage
                     { ...messageProps }
                     className={ cn('message', { author: message.author }) }
                 />

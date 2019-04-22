@@ -10,6 +10,7 @@ import { TApplicationState } from '../../reducers';
 import { currentAccountSelector } from '../../selectors/current-account-selector';
 
 import { ETransactionIconsTypes } from '../../libs/transaction-icons';
+import { EAuthorTypes, EMessageTypes } from '../../reducers/chat-reducer';
 
 import Heading from '../../components/ui/heading';
 import Paragraph from '../../components/ui/paragraph';
@@ -18,9 +19,9 @@ import AccountIcon from '../../components/ui/account-icon';
 
 import { sendMessage } from '../../actions/chat/chat-actions';
 
-import './transactions.css';
 import { generateId } from '../../utils/generate-id';
-import { EAuthorTypes, EMessageTypes } from '../../reducers/chat-reducer';
+
+import './transactions.css';
 
 function mapStateToProps(state: TApplicationState, ownProps) {
     return {

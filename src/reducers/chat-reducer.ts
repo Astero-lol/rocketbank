@@ -1,6 +1,7 @@
 import { ETransactionIconsTypes, TIconType, TRANSACTION_ICONS } from '../libs/transaction-icons';
 import { EChatTypes } from '../actions/chat/chat-types';
 import { TGenericChatActions } from '../actions/chat/chat-actions';
+import { STICKERS } from '../libs/stickers';
 
 export enum EMessageTypes {
     text = 'text',
@@ -67,6 +68,12 @@ const initialState: TChatState = {
             author: EAuthorTypes.support,
             type: EMessageTypes.text,
             text: 'Попробуй перезапустить приложение'
+        },
+        {
+            id: '5',
+            author: EAuthorTypes.user,
+            type: EMessageTypes.sticker,
+            value: STICKERS[0].value
         }
     ]
 };
@@ -79,7 +86,8 @@ export function chatReducer(state = initialState, action: TGenericChatActions) {
                 messages: [...state.messages, action.message]
             };
         }
-    }
 
-    return state;
+        default:
+            return state;
+    }
 }

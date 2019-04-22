@@ -10,6 +10,8 @@ import Icon from '../ui/icon';
 
 import { generateId } from '../../utils/generate-id';
 
+import { STICKERS } from '../../libs/stickers';
+
 import './chat-action.css';
 
 type TChatAction = {
@@ -26,7 +28,12 @@ export default class ChatAction extends React.Component<TChatAction> {
             <div className={ cn() }>
                 <div className={ cn('actions') }>
                     <Icon className={ cn('action-icon') } type='text' />
-                    <Icon className={ cn('action-icon') } type='sticker' isHovered={ true } />
+                    <div className={ cn('stickers') }>
+                        <Icon className={ cn('action-icon', { sticker: true }) } type='sticker' isHovered={ true } />
+                        <div className={ cn('stickers-popup') }>
+                            { STICKERS.map(sticker => this.renderSticker(cn, sticker)) }
+                        </div>
+                    </div>
                     <Icon className={ cn('action-icon') } type='picture' isHovered={ true } />
                     <Icon className={ cn('action-icon') } type='attach' isHovered={ true } />
                 </div>
@@ -44,6 +51,18 @@ export default class ChatAction extends React.Component<TChatAction> {
         );
     }
 
+    renderSticker(cn, sticker) {
+        return (
+            <div
+                role='presentation'
+                key={ sticker.value }
+                className={ cn('sticker') }
+                style={ { backgroundImage: `url(${sticker.value})` } }
+                onClick={ () => this.handleStickerClick(sticker.value) }
+            />
+        );
+    }
+
     @autobind
     handleSubmit(event) {
         event.preventDefault();
@@ -52,14 +71,30 @@ export default class ChatAction extends React.Component<TChatAction> {
             sendMessage
         } = this.props;
 
-        sendMessage({
-            id: generateId(),
-            author: EAuthorTypes.support,
-            type: EMessageTypes.text,
-            text: this.textarea.current.value
-        });
+        if (this.textarea.current.value) {
+            sendMessage({
+                id: generateId(),
+                author: EAuthorTypes.support,
+                type: EMessageTypes.text,
+                text: this.textarea.current.value
+            });
+        }
 
         this.textarea.current.value = '';
         this.textarea.current.focus();
+    }
+
+    @autobind
+    handleStickerClick(value) {
+        const {
+            sendMessage
+        } = this.props;
+
+        sendMessage({
+            id: generateId(),
+            author: EAuthorTypes.support,
+            type: EMessageTypes.sticker,
+            value
+        });
     }
 }

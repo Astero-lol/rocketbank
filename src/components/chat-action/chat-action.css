@@ -11,6 +11,13 @@
 
     &__action-icon {
         margin-right: 20px;
+
+        &_sticker {
+            &:hover + .chat-action__stickers-popup {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
     }
 
     &__form {
@@ -37,6 +44,50 @@
     }
 
     &__send {
+        cursor: pointer;
+    }
+
+    &__stickers {
+        position: relative;
+    }
+
+    &__stickers-popup {
+        position: absolute;
+        top: 0;
+        left: 20px;
+
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+        height: 400px;
+
+        background-color: var(--white-color);
+        border-radius: 10px 10px 10px 4px;
+
+        transform: translateY(-100%);
+
+        opacity: 0;
+        visibility: hidden;
+        overflow-y: scroll;
+
+        transition: all var(--duration) calc(var(--duration) / 2);
+
+        &:hover {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__sticker {
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
+        min-height: 100px;
+
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+
         cursor: pointer;
     }
 }
