@@ -12,6 +12,7 @@ import Deposits from '../deposits';
 import Transactions from '../transactions';
 
 import './app.css';
+import { ANIMATION_DURATION } from '../../constants';
 
 function mapStateToProps(state: TApplicationState) {
     return {
@@ -38,7 +39,7 @@ class App extends React.Component<TAppProps> {
                                 <CSSTransition
                                     key={ location.key }
                                     classNames='animate'
-                                    timeout={ 300 }
+                                    timeout={ ANIMATION_DURATION }
                                 >
                                     <Switch>
                                         <Route path='/accounts' exact={ true } component={ Accounts } />
