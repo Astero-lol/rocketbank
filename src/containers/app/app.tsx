@@ -42,7 +42,7 @@ class App extends React.Component<TAppProps> {
                                     timeout={ ANIMATION_DURATION }
                                 >
                                     <Switch>
-                                        <Route path='/accounts' exact={ true } component={ Accounts } />
+                                        <Route path='/' exact={ true } component={ Accounts } />
                                         <Route path='/accounts/:accountNumber' component={ Transactions } />
                                         <Route path='/deposits' component={ Deposits } />
                                     </Switch>
