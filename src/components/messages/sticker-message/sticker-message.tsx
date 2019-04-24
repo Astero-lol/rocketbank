@@ -2,7 +2,7 @@ import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 
 import { IStickerMassage } from '../../../reducers/chat-reducer';
-import { TAccountProfile } from '../../../reducers/account-reducer';
+import { TUserProfile } from '../../../reducers/user-reducer';
 
 import BaseMessage from '../base-message';
 
@@ -11,7 +11,7 @@ import './sticker-message.css';
 type TStickerMessage = {
     className?: string;
     message: IStickerMassage;
-    profile: TAccountProfile;
+    profile: TUserProfile;
 };
 
 @cn('sticker-message')

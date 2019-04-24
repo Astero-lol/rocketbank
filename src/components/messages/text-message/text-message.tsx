@@ -2,7 +2,7 @@ import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 
 import { EAuthorTypes, ITextMessage } from '../../../reducers/chat-reducer';
-import { TAccountProfile } from '../../../reducers/account-reducer';
+import { TUserProfile } from '../../../reducers/user-reducer';
 
 import Paragraph from '../../ui/paragraph';
 import BaseMessage from '../base-message';
@@ -12,7 +12,7 @@ import './text-message.css';
 type TTextMessage = {
     message: ITextMessage;
     className?: string;
-    profile: TAccountProfile;
+    profile: TUserProfile;
 };
 
 @cn('text-message')

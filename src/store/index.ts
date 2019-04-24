@@ -2,6 +2,8 @@ import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
 import reducer, { AppState } from '../reducers';
 
+import userMiddleware from '../middlewares/user-middleware';
+
 const initState: AppState = {
     app: {}
 };
@@ -9,5 +11,5 @@ const initState: AppState = {
 export default createStore(
     reducer,
     initState,
-    applyMiddleware(promise)
+    applyMiddleware(promise, userMiddleware)
 );

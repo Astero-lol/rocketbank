@@ -1,7 +1,6 @@
-import { ETransactionIconsTypes, TIconType, TRANSACTION_ICONS } from '../libs/transaction-icons';
+import { TIconType } from '../libs/transaction-icons';
 import { EChatTypes } from '../actions/chat/chat-types';
 import { TGenericChatActions } from '../actions/chat/chat-actions';
-import { STICKERS } from '../libs/stickers';
 
 export enum EMessageTypes {
     text = 'text',
@@ -38,44 +37,7 @@ export type TChatState = {
 };
 
 const initialState: TChatState = {
-    messages: [
-        {
-            id: '1',
-            author: EAuthorTypes.support,
-            type: EMessageTypes.text,
-            text: 'Привет, братишка. Что у тебя за проблемы опять?'
-        },
-        {
-            id: '2',
-            author: EAuthorTypes.user,
-            type: EMessageTypes.text,
-            text: 'Да вот снова логотип не отображается'
-        },
-        {
-            id: '3',
-            author: EAuthorTypes.user,
-            type: EMessageTypes.transaction,
-            icon: {
-                type: ETransactionIconsTypes.image,
-                value: TRANSACTION_ICONS.dicsi.value
-            },
-            title: 'Перексресток Экспресс',
-            amount: '- 6200 ₽',
-            cashback: '+62 рокетрубля'
-        },
-        {
-            id: '4',
-            author: EAuthorTypes.support,
-            type: EMessageTypes.text,
-            text: 'Попробуй перезапустить приложение'
-        },
-        {
-            id: '5',
-            author: EAuthorTypes.user,
-            type: EMessageTypes.sticker,
-            value: STICKERS[0].value
-        }
-    ]
+    messages: []
 };
 
 export function chatReducer(state = initialState, action: TGenericChatActions) {

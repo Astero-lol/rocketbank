@@ -15,7 +15,7 @@ import './chat.css';
 function mapStateToProps(state: TApplicationState) {
     return {
         chat: state.chat,
-        account: state.account
+        user: state.user
     };
 }
 
@@ -36,14 +36,14 @@ class Chat extends React.Component<TChat> {
     render(cn?: CnFn) {
         const {
             chat,
-            account,
+            user,
             action
         } = this.props;
 
         return (
             <div className={ cn() }>
                 <ChatField
-                    profile={ account.profile }
+                    profile={ user.profile }
                     messages={ chat.messages }
                     className={ cn('chat-field') }
                 />

@@ -11,6 +11,7 @@ import Icon from '../ui/icon';
 import { generateId } from '../../utils/generate-id';
 
 import { STICKERS } from '../../libs/stickers';
+import { ONE_SECOND } from '../../constants';
 
 import './chat-action.css';
 
@@ -22,6 +23,12 @@ type TChatAction = {
 @cn('chat-action')
 export default class ChatAction extends React.Component<TChatAction> {
     textarea = React.createRef<HTMLTextAreaElement>();
+
+    componentDidMount() {
+        setTimeout(() => (
+            this.handleSendMessage('Ну што, возьмете меня к себе? (:', EAuthorTypes.user)
+        ), ONE_SECOND);
+    }
 
     render(cn?: CnFn) {
         return (
@@ -67,18 +74,23 @@ export default class ChatAction extends React.Component<TChatAction> {
     handleSubmit(event) {
         event.preventDefault();
 
+        if (this.textarea.current.value) {
+            this.handleSendMessage(this.textarea.current.value);
+        }
+    }
+
+    @autobind
+    handleSendMessage(text, author = EAuthorTypes.support) {
         const {
             sendMessage
         } = this.props;
 
-        if (this.textarea.current.value) {
-            sendMessage({
-                id: generateId(),
-                author: EAuthorTypes.support,
-                type: EMessageTypes.text,
-                text: this.textarea.current.value
-            });
-        }
+        sendMessage({
+            id: generateId(),
+            type: EMessageTypes.text,
+            author,
+            text
+        });
 
         this.textarea.current.value = '';
         this.textarea.current.focus();

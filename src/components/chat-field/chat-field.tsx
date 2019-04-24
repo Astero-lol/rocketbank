@@ -1,10 +1,10 @@
 import * as React from 'react';
 import cn, { CnFn } from 'cn-decorator';
 import { autobind } from 'core-decorators';
-import { animateScroll } from "react-scroll";
+import { animateScroll } from 'react-scroll';
 
 import { TMessage, EMessageTypes } from '../../reducers/chat-reducer';
-import { TAccountProfile } from '../../reducers/account-reducer';
+import { TUserProfile } from '../../reducers/user-reducer';
 
 import TextMessage from '../messages/text-message';
 import TransactionMessage from '../messages/transaction-message';
@@ -17,7 +17,7 @@ import './chat-field.css';
 type TChatField = {
     className?: string;
     messages: TMessage[];
-    profile: TAccountProfile;
+    profile: TUserProfile;
 };
 
 @cn('chat-field')
@@ -26,7 +26,7 @@ export default class ChatField extends React.Component<TChatField> {
         animateScroll.scrollToBottom({
             containerId: 'chat-field',
             duration: ANIMATION_DURATION
-        })
+        });
     }
 
     render(cn?: CnFn) {

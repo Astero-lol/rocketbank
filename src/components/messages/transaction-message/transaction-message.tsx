@@ -3,7 +3,8 @@ import cn, { CnFn } from 'cn-decorator';
 
 import { EAuthorTypes, ITransactionMessage } from '../../../reducers/chat-reducer';
 import { ETransactionIconsTypes } from '../../../libs/transaction-icons';
-import { TAccountProfile } from '../../../reducers/account-reducer';
+import { TUserProfile } from '../../../reducers/user-reducer';
+
 import Heading from '../../ui/heading';
 import Paragraph from '../../ui/paragraph';
 
@@ -13,7 +14,7 @@ import BaseMessage from '../base-message';
 type TTransactionMessage = {
     className?: string;
     message: ITransactionMessage;
-    profile: TAccountProfile;
+    profile: TUserProfile;
 };
 
 @cn('transaction-message')

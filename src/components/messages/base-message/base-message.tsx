@@ -3,13 +3,13 @@ import cn, { CnFn } from 'cn-decorator';
 
 import Paragraph from '../../ui/paragraph';
 
-import { TAccountProfile } from '../../../reducers/account-reducer';
+import { TUserProfile } from '../../../reducers/user-reducer';
 
 import './base-message.css';
 
 type TBaseMessage = {
     className?: string;
-    profile: TAccountProfile;
+    profile: TUserProfile;
 };
 
 @cn('base-message')

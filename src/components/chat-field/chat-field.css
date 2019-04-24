@@ -9,6 +9,13 @@
 
     overflow-y: scroll;
 
+    .chat-field__message_author_user:first-of-type {
+        .base-message__photo,
+        .base-message__name {
+            display: block;
+        }
+    }
+
     &__message {
         position: relative;
         animation: showMessage 250ms;
