@@ -1,0 +1,88 @@
+.koshacha {
+    position: relative;
+
+    width: 165px;
+    height: 380px;
+
+    &__body {
+        position: absolute;
+        z-index: 5;
+
+        width: 100%;
+        height: 100%;
+
+        background-image: url('./images/body.png');
+        background-size: contain;
+    }
+
+    &__eyes {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        z-index: 5;
+
+        width: 108px;
+        height: 30px;
+
+        background-image: url('./images/eyes.png');
+        background-size: contain;
+    }
+
+    &__hand {
+        position: absolute;
+
+        width: 70px;
+        height: 270px;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        animation-iteration-count: infinite;
+
+        &_left {
+            right: 10px;
+            top: 5px;
+
+            background-image: url('./images/left-hand.png');
+
+            animation-name: left-hand;
+            animation-duration: 1s;
+        }
+
+        &_right {
+            left: 25px;
+            background-image: url('./images/left-hand.png');
+
+            animation-name: right-hand;
+            animation-duration: 13s;
+        }
+    }
+}
+
+@keyframes left-hand {
+    from {
+        transform: rotate(45deg);
+    }
+
+    50% {
+        transform: rotate(55deg);
+    }
+
+    to {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes right-hand {
+    from {
+        transform: rotate(215deg);
+    }
+
+    50% {
+        transform: rotate(205deg);
+    }
+
+    to {
+        transform: rotate(215deg);
+    }
+}

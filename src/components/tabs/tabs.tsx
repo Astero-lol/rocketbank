@@ -14,7 +14,7 @@ export default class Tabs extends React.Component<TTabs> {
         return (
             <div className={ cn() }>
                 <NavLink
-                    to='/'
+                    to='/accounts'
                     className={ cn('tab') }
                     activeClassName={ cn('tab', { active: true }) }
                 >

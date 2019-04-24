@@ -1,3 +1,14 @@
+@import '../../common/vars.css';
+
 .deposits {
     padding: 60px;
+
+    &__koshacha {
+        margin: 50px auto;
+    }
+
+    &__text {
+        text-align: center;
+        color: var(--note-color);
+    }
 }

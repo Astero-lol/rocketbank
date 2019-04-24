@@ -54,7 +54,7 @@ class Transactions extends React.Component<TTransactions> {
             && (
                 <div className={ cn() }>
                     <header className={ cn('header') }>
-                        <Link to='/' className={ cn('close-icon') } />
+                        <Link to='/accounts' className={ cn('close-icon') } />
                         <div className={ cn('main') }>
                             <AccountIcon className={ cn('account-icon') } icon={ currentAccount.icon } />
                             <div className={ cn('info') }>
