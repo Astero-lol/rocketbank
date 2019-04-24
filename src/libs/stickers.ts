@@ -10,7 +10,7 @@ export const STICKERS: TSticker[] = [
     },
     {
         type: 'sticker',
-        value: 'https://vk.com/sticker/1-10295-128'
+        value: 'https://vk.com/sticker/1-10308-128'
     },
     {
         type: 'sticker',
@@ -22,7 +22,7 @@ export const STICKERS: TSticker[] = [
     },
     {
         type: 'sticker',
-        value: 'https://vk.com/sticker/1-10278-128'
+        value: 'https://vk.com/sticker/1-10287-128'
     },
     {
         type: 'sticker',

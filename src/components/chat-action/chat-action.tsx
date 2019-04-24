@@ -25,8 +25,9 @@ export default class ChatAction extends React.Component<TChatAction> {
     textarea = React.createRef<HTMLTextAreaElement>();
 
     componentDidMount() {
+        this.handleSendStickerMessage(STICKERS[3].value, EAuthorTypes.user);
         setTimeout(() => (
-            this.handleSendMessage('Ну што, возьмете меня к себе? (:', EAuthorTypes.user)
+            this.handleSendMessage('Ну што, возьмете меня к себе? 😊️', EAuthorTypes.user)
         ), ONE_SECOND);
     }
 
@@ -96,17 +97,21 @@ export default class ChatAction extends React.Component<TChatAction> {
         this.textarea.current.focus();
     }
 
-    @autobind
-    handleStickerClick(value) {
+    handleSendStickerMessage(value, author = EAuthorTypes.support) {
         const {
             sendMessage
         } = this.props;
 
         sendMessage({
             id: generateId(),
-            author: EAuthorTypes.support,
             type: EMessageTypes.sticker,
+            author,
             value
         });
+    }
+
+    @autobind
+    handleStickerClick(value) {
+        this.handleSendStickerMessage(value);
     }
 }

@@ -51,42 +51,47 @@ export default ({ dispatch }) => next => (action) => {
         const sendStickerMessageWithTimeout = callAfterTimeout(sendStickerMessage);
 
         const api = {
-            [EAnswerTypes.POSITIVE]: () => (
-                sendTextMessageWithTimeout(
-                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
-                    'pos'
-                )
-                    .then(() => (
-                        sendTextMessageWithTimeout(
-                            ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
-                            '321'
-                        )
-                    ))
-                    .then(() => sendStickerMessageWithTimeout(
-                        ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
-                        STICKERS[1])
-                    )
-            ),
-            [EAnswerTypes.NEGATIVE]: () => (
-                sendTextMessageWithTimeout(
-                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
-                    'neg'
-                )
-                    .then(() => sendTextMessageWithTimeout(
-                        ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
-                        '321')
-                    )
-                    .then(() => sendStickerMessageWithTimeout(
-                        ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
-                        STICKERS[1])
-                    )
-            ),
-            [EAnswerTypes.UNKNOWN]: () => (
-                sendTextMessageWithTimeout(
-                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
-                    'unknown'
-                )
+            [EAnswerTypes.POSITIVE]: () => (sendTextMessageWithTimeout(
+                ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                'Ура!🥳'
             )
+                .then(() => sendStickerMessageWithTimeout(
+                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                    STICKERS[10]
+                )).then(() => sendStickerMessageWithTimeout(
+                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                    STICKERS[1]
+                ))
+                .then(() => sendTextMessageWithTimeout(
+                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                    '💃💃💃💅💅💅'
+                ))
+            ),
+            [EAnswerTypes.NEGATIVE]: () => (sendTextMessageWithTimeout(
+                ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                '...'
+            )
+                .then(() => sendStickerMessageWithTimeout(
+                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                    STICKERS[0]
+                ))
+                .then(() => sendStickerMessageWithTimeout(
+                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                    STICKERS[2]
+                ))
+                .then(() => sendStickerMessageWithTimeout(
+                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                    STICKERS[4]
+                ))
+                .then(() => sendTextMessageWithTimeout(
+                    ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                    'Ня.Пока'
+                ))
+            ),
+            [EAnswerTypes.UNKNOWN]: () => (sendTextMessageWithTimeout(
+                ONE_SECOND * getRandomNumber(MIN_ANSWER_DELAY, MAX_ANSWER_DELAY),
+                'Я не понимаю ваших намеков 🤷 Скажите прямо, я все выдержу 🙄'
+            ))
         };
 
         api[currentAnswerType.type]().then(() => {
